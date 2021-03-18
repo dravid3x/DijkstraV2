@@ -20,7 +20,7 @@ namespace Dijkstra
                 matrice.Add(temp);
                 matrice[i].Add(0);
             }
-            
+            //
             for (int i = 0; i < nNodi; i++)
             {
                 for (int k = 0; k < nNodi; k++)
