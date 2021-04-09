@@ -31,10 +31,20 @@ namespace Dijkstra
                 InserimentoArchi(nNodi);
             } else if(scelta == 1)
             {
-                matrice[0][1] = 3; matrice[1][0] = 3;
-                matrice[1][2] = 5; matrice[2][1] = 5;
-                matrice[2][3] = 7; matrice[3][2] = 7;
-                matrice[0][3] = 6; matrice[3][0] = 6;
+                matrice[0][1] = 1; matrice[1][0] = 1;
+                matrice[0][2] = 6; matrice[2][0] = 6;
+                matrice[0][3] = 5; matrice[3][0] = 5;
+                matrice[1][4] = 2; matrice[4][1] = 2;
+                matrice[1][5] = 5; matrice[5][1] = 5;
+                matrice[2][5] = 2; matrice[5][2] = 2;
+                matrice[3][5] = 4; matrice[5][3] = 4;
+                matrice[3][6] = 2; matrice[6][3] = 2;
+                matrice[4][7] = 3; matrice[7][4] = 3;
+                matrice[5][7] = 4; matrice[7][5] = 4;
+                matrice[5][8] = 3; matrice[8][5] = 3;
+                matrice[6][8] = 6; matrice[8][6] = 6;
+                matrice[7][9] = 6; matrice[9][7] = 6;
+                matrice[8][9] = 5; matrice[9][8] = 5;
             }
             else
             {
@@ -67,7 +77,6 @@ namespace Dijkstra
                 }
             }
         }
-
         private static void InserimentoArchi(int nNodi)
         {
             //Funzione che inserisce i costi dei collegamenti tra i nodi all'interno della matrice
@@ -104,20 +113,6 @@ namespace Dijkstra
                 //percorso_router.Add(precedente);
             } while (precedente != nIniziale);
         }
-
-        private static void Stampa(int nNodi)
-        {
-            //Funzone di stampa della matrice
-            for (int i = 0; i < nNodi; i++)
-            {
-                for (int k = 0; k < nNodi; k++)
-                {
-                    Console.Write(matrice[i][k].ToString());
-                }
-                Console.Write("\n");
-            }
-        }
-
         private static void Stampa_percorso(int nFinale)
         {
             int precedente = nFinale;
@@ -127,7 +122,6 @@ namespace Dijkstra
                 precedente = routers[precedente].Precedente;
             }
         }
-
         private static void GeneraPercorso(int nIniziale, int nNodi)
         {
             int nodo_successivo = nIniziale;

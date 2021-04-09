@@ -13,3 +13,4 @@ C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijks
 C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijkstra\obj\Debug\net5.0\ref\Dijkstra.dll
 C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijkstra\obj\Debug\net5.0\Dijkstra.pdb
 C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijkstra\obj\Debug\net5.0\Dijkstra.genruntimeconfig.cache
+C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijkstra\obj\Debug\net5.0\Dijkstra.csprojAssemblyReference.cache
