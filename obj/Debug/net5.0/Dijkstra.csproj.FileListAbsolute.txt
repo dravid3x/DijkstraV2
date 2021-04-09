@@ -5,7 +5,6 @@ C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijks
 C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijkstra\bin\Debug\net5.0\Dijkstra.dll
 C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijkstra\bin\Debug\net5.0\ref\Dijkstra.dll
 C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijkstra\bin\Debug\net5.0\Dijkstra.pdb
-C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijkstra\obj\Debug\net5.0\Dijkstra.csprojAssemblyReference.cache
 C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijkstra\obj\Debug\net5.0\Dijkstra.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijkstra\obj\Debug\net5.0\Dijkstra.AssemblyInfoInputs.cache
 C:\Users\dadol\OneDrive\Scuola\Sistemi\lab sistemi\Programmazione\Dijkstra\Dijkstra\obj\Debug\net5.0\Dijkstra.AssemblyInfo.cs
