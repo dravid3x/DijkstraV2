@@ -14,6 +14,7 @@ namespace Dijkstra
 
         static List<List<int>> matrice = new List<List<int>>();
         static List<Nodo> routers = new List<Nodo>();
+        static List<int> percorso_router = new List<int>();
 
         public static void Main(string[] args)
         {
@@ -28,6 +29,17 @@ namespace Dijkstra
                     {
                         InizializzazioneMatrice(nNodi);
                         InserimentoArchi(nNodi);
+                        for (int i = 0; i < nNodi; i++) routers.Add(new Nodo());    //Inizializzazione della lista di nodi
+                        Console.Write("\nInserire il nodo iniziale: ");
+                        nIniziale = Convert.ToInt32(Console.ReadLine());
+                        routers[nIniziale].Costo = 0;
+                        Console.Write("\nInserire il nodo finale: ");
+                        nFinale = Convert.ToInt32(Console.ReadLine());
+                        GeneraPercorso(nIniziale, nNodi);
+                        TrovaPercorso(nFinale, nIniziale);
+                        Console.Writeline("Per arrivare al router " + Convert.ToString(nFinale) + "dal router " + Convert.ToString(nIniziale) + "bisogna seguire il percorso");
+                        Stampa_percorso();
+                        Console.Writeline("\ncosto : " + Convert.ToString(routers[nFinale].Costo) + "\n");
                     }
                     break;
                 case 1:
@@ -41,14 +53,6 @@ namespace Dijkstra
                     return;
                     break;
             }
-            for (int i = 0; i < nNodi; i++) routers.Add(new Nodo());    //Inizializzazione della lista di nodi
-
-            //Console.Write("\nInserire il nodo iniziale: ");
-            //nIniziale = Convert.ToInt32(Console.ReadLine());
-            //Console.Write("\nInserire il nodo finale: ");
-            //nFinale = Convert.ToInt32(Console.ReadLine());
-
-
         }
 
         private static void InizializzazioneMatrice(int nNodi)
@@ -91,6 +95,16 @@ namespace Dijkstra
                 indice++;
             }
         }
+        private static void TrovaPercorso(int nFinale, int nIniziale)
+        {
+            percorso_router.Clear;
+            int precedente;
+            do
+            {
+                precedente = nFinale.precedente;
+                percorso_router.Add(precedente);
+            } while (precedente != nIniziale);
+        }
 
         private static void Stampa(int nNodi)
         {
@@ -104,6 +118,13 @@ namespace Dijkstra
                 Console.Write("\n");
             }
         }
+        private static void Stampa_percorso()
+        {
+            for(int c = percorso_router.size-1; c>0;c--)
+                Console.Writeline(" " + Convert.ToString(percorso_router[c]));
+            if (c != 0)
+                Console.Writeline(" -");
+        }
 
         private static void GeneraPercorso(int nIniziale, int nNodi)
         {
@@ -111,17 +132,45 @@ namespace Dijkstra
             //imposto  il ciclo in modo che continui per ogni router della rete
             for (int i = 0; i < nNodi; i++)
             {
-
+                //metto definitivo il nodo che passo alla funzione e aggiorno i costi nei nodi collegati a quest'ultimo
+                TrovaNodoSuccessivo(nodo_successivo, nNodi, nIniziale);
+                //imposto come nodo successivo il nodo con il costo minimo che conosco
+                nodo_successivo = TrovaMin(nNodi);
             }
         }
-        private static int TrovaNodoSuccessivo(int pos, int nNodi, int nIniziale)
+        private static void TrovaNodoSuccessivo(int pos, int nNodi, int nIniziale)
         {
-            routers[pos].Costo = matrice[nIniziale][]
+            //Scorro per tutti i router per vedere a quali sono collegato
             for (int c = 0; c < nNodi; c++)
             {
-                
+                //entro se ne trovo uno a cui sono collegato
+                if(matrice[nIniziale][c] != -1)
+                {
+                    //Se il percorso è migliorativo rispetto a quello precedente sovrascrivo il costo
+                    if(routers[c].Costo < routers[pos].Costo + matrice[nIniziale][c])
+                    {
+                        routers[c].Costo = routers[pos].Costo + matrice[nIniziale][c];
+                        //inserisco la provenienza del router che mi porta a questo percorso
+                        routers[c].precedente = pos;
+                    }
+                }
             }
-            return 0;
+            routers[TrovaMin(nNodi)].visitato = true;
+        }
+        private static int TrovaMin(int nNodi)
+        {
+            int max = int.max, pos=0;
+            //Scorro per tutti i nodi e trovo quello non visitato che ha costo minore
+            for(int c=0;c<nNodi;c++)
+            {
+                //Se trovo un valore più piccolo di max che non è già stato visitato mi salvo la posizione e aggioro il valore di max
+                if (routers[c].Costo < max && routers[c].visitato == false)
+                {
+                    pos = c;
+                    max = routers[c].Costo;
+                }  
+            }
+            return pos;
         }
 
     }

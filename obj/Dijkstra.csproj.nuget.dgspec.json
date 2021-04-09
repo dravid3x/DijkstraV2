@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dadol\\OneDrive\\Scuola\\Sistemi\\lab sistemi\\Programmazione\\Dijkstra\\Dijkstra\\Dijkstra.csproj": {}
+    "C:\\Users\\Gianmarco\\Documents\\GitHub\\DijkstraV2\\Dijkstra.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dadol\\OneDrive\\Scuola\\Sistemi\\lab sistemi\\Programmazione\\Dijkstra\\Dijkstra\\Dijkstra.csproj": {
+    "C:\\Users\\Gianmarco\\Documents\\GitHub\\DijkstraV2\\Dijkstra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dadol\\OneDrive\\Scuola\\Sistemi\\lab sistemi\\Programmazione\\Dijkstra\\Dijkstra\\Dijkstra.csproj",
+        "projectUniqueName": "C:\\Users\\Gianmarco\\Documents\\GitHub\\DijkstraV2\\Dijkstra.csproj",
         "projectName": "Dijkstra",
-        "projectPath": "C:\\Users\\dadol\\OneDrive\\Scuola\\Sistemi\\lab sistemi\\Programmazione\\Dijkstra\\Dijkstra\\Dijkstra.csproj",
-        "packagesPath": "C:\\Users\\dadol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dadol\\OneDrive\\Scuola\\Sistemi\\lab sistemi\\Programmazione\\Dijkstra\\Dijkstra\\obj\\",
+        "projectPath": "C:\\Users\\Gianmarco\\Documents\\GitHub\\DijkstraV2\\Dijkstra.csproj",
+        "packagesPath": "C:\\Users\\Gianmarco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gianmarco\\Documents\\GitHub\\DijkstraV2\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\dadol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Gianmarco\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,8 +25,7 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net50": {
             "projectReferences": {}
           }
         },
@@ -41,24 +36,13 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+        "net50": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
         }
       }
     }
