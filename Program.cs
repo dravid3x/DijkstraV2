@@ -12,6 +12,7 @@ namespace Dijkstra
 
         public static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             int nNodi, nIniziale, nFinale;
             Console.Write("Inserire il numero di nodi: ");
             nNodi = Convert.ToInt32(Console.ReadLine());
@@ -52,7 +53,6 @@ namespace Dijkstra
             Console.Write("\nInserire il nodo finale: ");
             nFinale = Convert.ToInt32(Console.ReadLine());
             GeneraPercorso(nIniziale, nNodi);
-            TrovaPercorso(nFinale, nIniziale);
             Console.WriteLine("Per arrivare al router " + Convert.ToString(nFinale) + " dal router " + Convert.ToString(nIniziale) + " bisogna seguire il percorso a ritroso\n");
             Salva_Percorso(nFinale);
             Stampa_Percorso(nFinale);
@@ -98,16 +98,6 @@ namespace Dijkstra
                 indice++;
             }
         }
-        private static void TrovaPercorso(int nFinale, int nIniziale)
-        {
-            percorso_router.Clear();
-            int precedente = nFinale;
-            do
-            {
-                precedente = routers[precedente].Precedente;
-                //percorso_router.Add(precedente);
-            } while (precedente != nIniziale);
-        }
         private static void Salva_Percorso(int nFinale)
         {
             int precedente = nFinale;
@@ -133,6 +123,10 @@ namespace Dijkstra
             {
                 //metto definitivo il nodo che passo alla funzione e aggiorno i costi nei nodi collegati a quest'ultimo
                 TrovaNodoSuccessivo(nodo_successivo, nNodi);
+
+                Console.WriteLine("Iterazione: " + i);
+                Stampa_Routers();
+
                 //imposto come nodo successivo il nodo con il costo minimo che conosco
                 nodo_successivo = TrovaMin(nNodi);
             }
@@ -170,6 +164,14 @@ namespace Dijkstra
                 }
             }
             return pos;
+        }
+        private static void Stampa_Routers()
+        {
+            int dim = routers.Count;
+            for(int i = 0; i < dim; i++)
+            {
+                Console.WriteLine("Nodo: " + i + "\tCosto: " + (routers[i].Costo == int.MaxValue ? "∞" : routers[i].Costo)  + "\tPrecedente: " + routers[i].Precedente + "\t" + (routers[i].Visitato ? "Definitivo" : "Non Definitivo"));
+            }
         }
 
     }
