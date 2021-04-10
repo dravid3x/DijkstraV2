@@ -5,12 +5,6 @@ namespace Dijkstra
 {
     public partial class Program
     {
-        #region Vecchie dichiarazioni
-        //static int nNodi = 0, posGenerale = 0;
-        //Lista contenente Liste di interi, il tutto crea una matrice dinamica
-        //static List<List<Nodo>> matrice = new List<List<Nodo>>();
-        //static List<Nodo> PercorsoCosti = new List<Nodo>();
-        #endregion
 
         static List<List<int>> matrice = new List<List<int>>();
         static List<Nodo> routers = new List<Nodo>();
@@ -60,7 +54,8 @@ namespace Dijkstra
             GeneraPercorso(nIniziale, nNodi);
             TrovaPercorso(nFinale, nIniziale);
             Console.WriteLine("Per arrivare al router " + Convert.ToString(nFinale) + " dal router " + Convert.ToString(nIniziale) + " bisogna seguire il percorso a ritroso\n");
-            Stampa_percorso(nFinale);
+            Salva_Percorso(nFinale);
+            Stampa_Percorso(nFinale);
             Console.WriteLine("\ncosto : " + Convert.ToString(routers[nFinale].Costo) + "\n");
         }
 
@@ -113,13 +108,21 @@ namespace Dijkstra
                 //percorso_router.Add(precedente);
             } while (precedente != nIniziale);
         }
-        private static void Stampa_percorso(int nFinale)
+        private static void Salva_Percorso(int nFinale)
         {
             int precedente = nFinale;
             while (precedente != -1)
             {
-                Console.WriteLine(precedente);
+                percorso_router.Add(precedente);
                 precedente = routers[precedente].Precedente;
+            }
+        }
+        private static void Stampa_Percorso(int nFinale)
+        {
+            int dim = percorso_router.Count - 1;
+            for(int i = dim; i > 0; i--)
+            {
+                Console.WriteLine(percorso_router[i]);
             }
         }
         private static void GeneraPercorso(int nIniziale, int nNodi)
@@ -174,12 +177,3 @@ namespace Dijkstra
 
 //Per fare l'"hop" semplicemente partendo dall'indice del nodo vedo a cosa è collegato (scorrendo l'indice x)
 //e mettendo il valore della x del nodo con costo minore come indice y si fà per l'appunto il salto al prossimo nodo
-
-//int[,] test = new int[5, 5]
-//{
-//    { 0, 7, 8, 10, 1 },
-//    { 7, 0, 1, 3, 5 },
-//    { 5, 1, 0, 2, 4 },
-//    { 3, 3, 2, 0, 2 },
-//    { 1, 5, 4, 2, 0 },
-//};
